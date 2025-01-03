@@ -5,11 +5,26 @@ header{
     background: linear-gradient(rgba(245, 245, 245, 0.657), rgba(111, 188, 154, 0.9)),
     url("https://www.strongrentacar.com/images/2023/04/15/Skyline-of-Doha-Qatar.jpg") center / cover no-repeat;
 }
+.txtgray{
+    color: #212529BF;
+}
+.txtwhite{
+    color: #fff;
+}
+.navbar {
+    background:rgba(245, 245, 245, 0.107);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
 
+.navbar.scrolled {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
 .nav-link {
     position: relative;
     padding: 0.5rem 1rem;
-    transition: all 0.5s ease;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
 }
 .nav-link::after {
     content: '';
@@ -27,7 +42,226 @@ header{
 .nav-link.active::after {
     width: 80%;
 }
-form {
+
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(25,135,84,0.1) 0%, rgba(13,110,66,0.1) 100%);
+    padding-top: 76px;
+}
+.animated-gradient {
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-custom {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-custom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #198754, #0d6e42);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-custom:hover::after {
+    transform: scaleX(1.1) scaleY(1.2);
+}
+
+.floating-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Services Section Styles */
+.service-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(25,135,84,0.1), rgba(13,110,66,0.1));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(25,135,84,0.2), rgba(13,110,66,0.2));
+}
+
+/* Projects Section Styles */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(25,135,84,0.9), transparent);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+.project-card:hover .project-overlay {
+    bottom: 0;
+}
+
+.project-image {
+    transition: all 0.4s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+/* Counter Section Styles */
+.counter-section {
+    background: linear-gradient(rgba(25,135,84,0.9), rgba(13,110,66,0.9)),
+                url("https://www.strongrentacar.com/images/2023/04/15/Skyline-of-Doha-Qatar.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.counter-item {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.counter-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.counter-number.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-compact {
+    background: linear-gradient(135deg, rgba(25,135,84,0.05), rgba(13,110,66,0.05));
+    padding: 40px 0;
+    margin: 20px 0;
+    border-radius: 20px;
+}
+
+.floating-mini {
+    animation: floatMini 4s ease-in-out infinite;
+}
+
+@keyframes floatMini {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.compact-btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.compact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(25,135,84,0.2);
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #198754, #20c997);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.image-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.glow-effect {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 50% 50%, rgba(25,135,84,0.1), transparent 90%);
+    z-index: -1;
+}
+
+/* Contact Section Styles */
+.contact-hero {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(rgba(245, 245, 245, 0.657), rgba(111, 188, 154, 0.9)),
+    url("https://www.strongrentacar.com/images/2023/04/15/Skyline-of-Doha-Qatar.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Cloud overlay effect */
+.cloud-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contact-form {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -35,10 +269,39 @@ form {
     transition: all 0.3s ease;
 }
 
-form:hover {
+.contact-form:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
+
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.95);
+    transition: transform 0.3s;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.form-control {
+    border: 1px solid #dde2e5;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25,135,84,0.15);
+}
+
 .btn-success {
     background-color: #28a745;
     border-color: #28a745;
@@ -48,24 +311,28 @@ form:hover {
     background-color: #218838;
     border-color: #1e7e34;
 }
-.service-card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    transition: .5s;
+
+.floating-element {
+    animation: float 5s ease-in-out infinite;
 }
-.bg_i{
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.contact-compact {
+    background: linear-gradient(10deg, rgba(25, 135, 84, 0), rgba(13, 110, 66, 0.011));
+    padding: 40px 0;
+    position: relative;
+}
+
+.info-badge {
     background: rgba(25,135,84,0.1);
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 8px;
-    font-size: 25px; 
+    font-size: 13px;
 }
-.txtgray{
-    color: #212529BF;
-}
-.txtwhite{
-    color: #fff;
-}
-.img{width: 80%;}
 .footer-pro {
     background: rgba(25, 135, 84, 0.9);
     color: #fff;
@@ -100,6 +367,7 @@ form:hover {
     background: #198754;
     transform: translateY(-3px);
 }
+
 .footer-pro .footer-link {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
