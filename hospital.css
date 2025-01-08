@@ -1,0 +1,281 @@
+.hero-section {
+    background: linear-gradient(rgba(255, 255, 255, 0.797), rgba(255, 255, 255, 0.859)),
+                url('https://i.imgur.com/RKbG9jq.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+        /* background: 
+            linear-gradient(90deg, rgba(0,128,128,0.05) 1px, transparent 1px) 0 0 / 20px 20px,
+            linear-gradient(rgba(0,128,128,0.05) 1px, transparent 1px) 0 0 / 20px 20px; */
+    animation: patternMove 30s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+.medical-icon {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    padding: 1rem;
+    box-shadow: 
+        0 4px 6px rgba(0, 128, 128, 0.1),
+        0 1px 3px rgba(0, 128, 128, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.medical-icon:hover {
+    transform: scale(1.05);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #38b2ac 0%, #4299e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card-3d:hover .card-content {
+    transform: rotateY(5deg) translateZ(10px);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(56, 178, 172, 0.1);
+}
+
+.animated-background {
+    background: linear-gradient(
+        270deg,
+        rgba(56, 178, 172, 0.1),
+        rgba(66, 153, 225, 0.1),
+        rgba(56, 178, 172, 0.1)
+    );
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.feature-card {
+    position: relative;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(56, 178, 172, 0.1);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(56, 178, 172, 0.1), rgba(66, 153, 225, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.testimonial-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(56, 178, 172, 0.1) 0%,
+        rgba(56, 178, 172, 0.05) 30%,
+        transparent 70%
+    );
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #38b2ac, #4299e1);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #38b2ac, #4299e1);
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
+
+.floating-action-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #38b2ac, #4299e1);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.floating-action-button:hover {
+    transform: scale(1.1);
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(56, 178, 172, 0.1);
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, #38b2ac, #4299e1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #38b2ac 0%, #4299e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hover-card {
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.animated-bg {
+    background: linear-gradient(-45deg, #f3f4f6, #ffffff, #f9fafb, #ffffff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.advantage-circle {
+    transition: all 0.3s ease;
+}
+.advantage-circle:hover {
+    transform: scale(1.05);
+}
+.circle-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    backdrop-filter: blur(10px);
+}

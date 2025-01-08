@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Hospital - Professional Disinfection Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fruits.css">
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+        }
+        
+        .gradient-border {
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(45deg, #38b2ac, #4299e1) border-box;
+            border: 2px solid transparent;
+            border-radius: 1rem;
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(56, 178, 172, 0.1) 1px, transparent 1px),
+                linear-gradient(to right, rgba(56, 178, 172, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+                       0 18px 36px -18px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 100%
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to {
+                left: 100%;
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-50  grid-pattern">
+    <!-- Header with enhanced navigation -->
+   
+
+    <!-- Main content with enhanced sections -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section min-h-screen flex items-center " >
+            <div class="hero-pattern"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <h2 class="text-5xl font-bold gradient-text">Professional Medical Disinfection Solutions</h2>
+                        <p class="text-xl font-bold text-black">Advanced sterilization technology for healthcare facilities, 
+                            ensuring the highest standards of cleanliness and safety.</p>
+                        <div class="flex space-x-4">
+                            
+                        
+                            <button onclick="openModal()" class="btn-gradient text-white px-8 py-3 rounded-lg shadow-lg">
+                                Contact Us
+                            </button>
+                            <a href="index.html"  class="btn-gradient text-white px-8 py-3 rounded-lg shadow-lg">
+                                Go Home Page
+                             </a>
+                        </div>
+                        <div class="flex space-x-4">
+                            
+                        
+                          
+                          
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- <img src="https://img.freepik.com/premium-photo/futuristic-hospital-with-cuttingedge-technology-sleek-design-created-with-generative-ai_124507-220278.jpg" alt="Medical Facility" class="rounded-2xl shadow-2xl"> -->
+                        <!-- <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <span class="text-sm font-medium">WHO Certified</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+        <div id="contactModal" class="modal">
+            <div class="max-w-2xl w-full mx-auto m-8">
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                    <!-- Modal Header -->
+                    <div class="bg-gradient-to-r from-teal-500 to-blue-500 p-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-2xl font-bold text-white">Contact Us</h3>
+                            <button onclick="closeModal()" class="text-white hover:text-gray-200 transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Modal Body -->
+                    <div class="p-6">
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                    <input type="text" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                                </div>
+                            </div>
+    
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                <select class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                                    <option>General Inquiry</option>
+                                    <option>Technical Support</option>
+                                    <option>Sales</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+    
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent"></textarea>
+                            </div>
+    
+                            <button type="submit" class="w-full btn-gradient text-white py-3 rounded-lg">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+
+     <!-- Features Section -->
+<section class="py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-green-600">Our Agricultural Product Line</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- BS GRANULE -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                <img src="img/granule.png" alt="Peppers" class="rounded-lg">
+
+                <h3 class="text-2xl font-bold text-green-600 mb-4">BS GRANULE</h3>
+                <p class="mb-4">Slow-release fertilizer (90-120 days)</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• NPK 24-6-10 (leaves/fruits)</li>
+                    <li>• NPK 10-6-24 (root vegetables)</li>
+                    <li>• Contains 60 minerals</li>
+                    <li>• DMPP nitrification inhibitor</li>
+                    <li>• Light brown granules (2-3 mm)</li>
+                </ul>
+            </div>
+
+            <!-- BS GREEN 2 FRUIT -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                
+                <img src="img/fruit.png" alt="Peppers" class="rounded-lg">
+                <h3 class="text-2xl font-bold text-blue-600 mb-4">BSGREEN FRUIT</h3>
+                <p class="mb-4">For fruits and tree crops</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Total Nitrogen(N): 1%</li>
+                    <li>• P2O5(P): 5%</li>
+                    <li>• K2O(K): 5%</li>
+                    <li>• Multiple trace elements</li>
+                    <li>• Suitable for all fruit types</li>
+                </ul>
+            </div>
+
+            <!-- BS GREEN 3 GRAIN -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                
+                <img src="img/grain.png" alt="Peppers" class="rounded-lg">
+                <h3 class="text-2xl font-bold text-green-600 mb-4">BSGREEN GRAIN</h3>
+                <p class="mb-4">For cereals and grain crops</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• K2O(K): 8%</li>
+                    <li>• Silicic acid: 8%</li>
+                    <li>• Zinc: 0.05%</li>
+                    <li>• Boric acid: 0.05%</li>
+                    <li>• For rice, wheat, corn, etc.</li>
+                </ul>
+            </div>
+
+            <!-- BS GREEN ORIGINAL -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                <img src="img/original.png" alt="Peppers" class="rounded-lg">
+                <h3 class="text-2xl font-bold text-purple-600 mb-4">BSGREEN ORIGINAL</h3>
+                <p class="mb-4">Universal crop formula</p>
+                <ul class="space-y-2 text-gray-600">
+                    <li>• Total Nitrogen(N): 5%</li>
+                    <li>• P2O5(P): 3%</li>
+                    <li>• K2O(K): 5%</li>
+                    <li>• Enhanced leaf thickness</li>
+                    <li>• Disease resistance</li>
+                </ul>
+            </div>
+           
+
+        </div>
+
+        <!-- Technology Description -->
+        <div class="mt-16 glass-card p-8 rounded-xl backdrop-blur-lg bg-white/90 relative overflow-hidden">
+            <!-- Decorative Background Elements -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+         
+            <!-- Header Section -->
+            <div class="relative z-10 mb-12 text-center">
+                <span class="text-sm font-semibold text-green-600 tracking-wider uppercase">Our Process</span>
+                <h3 class="text-3xl font-bold mt-2 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                    BSGREEN Key Technology
+                </h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+         
+            <!-- Main Description -->
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl mb-12 shadow-sm">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        BSGREEN extracts minerals from <span class="font-semibold text-green-600">Korean mica (illite)</span>, which has the highest purity in the world. Our special manufacturing process uses <span class="font-semibold text-blue-600">Tricococcus pasteurii</span> and <span class="font-semibold text-blue-600">Ticaligenes faecalis</span> to remove nitrogen phosphate toxicity, enabling rapid nutrient absorption.
+                    </p>
+                </div>
+            </div>
+         
+            <!-- Process Steps -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl opacity-50 group-hover:opacity-100 blur transition-all duration-300"></div>
+                    <div class="relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl font-bold text-green-600">1</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3 text-gray-800">Extraction</h4>
+                        <p class="text-gray-600">60 minerals extracted from mica powder using proprietary method</p>
+                        <div class="absolute top-4 right-4">
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+         
+                <!-- Step 2 -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl opacity-50 group-hover:opacity-100 blur transition-all duration-300"></div>
+                    <div class="relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl font-bold text-blue-600">2</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3 text-gray-800">Treatment</h4>
+                        <p class="text-gray-600">Special microorganisms remove toxicity from nitrogen phosphate</p>
+                        <div class="absolute top-4 right-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+         
+                <!-- Step 3 -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-green-500 rounded-xl opacity-50 group-hover:opacity-100 blur transition-all duration-300"></div>
+                    <div class="relative bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                            <span class="text-2xl font-bold text-purple-600">3</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3 text-gray-800">Enrichment</h4>
+                        <p class="text-gray-600">NPK and trace elements added for final formulation</p>
+                        <div class="absolute top-4 right-4">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</section>
+
+   
+       
+       <!-- Features Section -->
+<section class="py-20">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-green-600">BS GRANULE Premium Series</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-green-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- BS GRANULE PREMIUM 1 -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                <h3 class="text-2xl font-bold text-red-600 mb-4">BS GRANULE PREMIUM①</h3>
+                <p class="font-semibold text-lg mb-4">SUPER POWER NPK 24-06-10</p>
+                <div class="mb-6">
+                    <h4 class="font-semibold text-green-600 mb-2">Suitable for:</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• LEAVES VEGETABLES</li>
+                        <li>• FRUITS VEGETABLES</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                   <img src="https://www.marthastewart.com/thmb/DKXtVzmwOYKcfIxVQivBlVR4dQg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ms-peppers-getty-73ea0d89f19b47aa80c7886637c83b71.jpg" alt="Peppers" class="rounded-lg">
+                    <img src="https://i.ytimg.com/vi/Ppi1fNKhhTk/maxresdefault.jpg" alt="Eggplant" class="rounded-lg">
+                    <img src="https://www.groworganic.com/cdn/shop/collections/strawberry-collection-thumbnail.jpg?v=1633469360" alt="Strawberry" class="rounded-lg">
+                    <img src="https://www.groworganic.com/cdn/shop/collections/strawberry-collection-thumbnail.jpg?v=1633469360" alt="Strawberry" class="rounded-lg">
+                </div>
+            </div>
+
+            <!-- BS GRANULE PREMIUM 2 -->
+            <div class="glass-card p-6 rounded-xl hover-lift">
+                <h3 class="text-2xl font-bold text-yellow-600 mb-4">BS GRANULE PREMIUM②</h3>
+                <p class="font-semibold text-lg mb-4">SUPER POWER NPK 10-06-24</p>
+                <div class="mb-6">
+                    <h4 class="font-semibold text-green-600 mb-2">Suitable for:</h4>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>• FRUIT TREE</li>
+                        <li>• ROOT VEGETABLES</li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    <img src="https://plantskingdom.in/cdn/shop/products/pixie-crunch-apple-tree.wdp.jpg?v=1657427595" alt="Apple" class="rounded-lg">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/AZ/LQ/OT/40093875/pear-plant-resize-98.jpg" alt="Pear" class="rounded-lg">
+                    <img src="https://www.southernliving.com/thmb/Yh-UmvVLABdTwZR79CfuFsoWsNs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-580492813-2000-03d379f5c75e471dbadf3281233786b5.jpg" alt="Root Vegetables" class="rounded-lg">
+                    <img src="data:image/jpeg;base64,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" alt="Grapes" class="rounded-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="glass-card p-8 rounded-xl mb-12 backdrop-blur-lg bg-white/90">
+            <h3 class="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                Product Characteristics
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Core Features -->
+                <div class="relative">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-green-400 to-green-600 rounded-full"></div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl mb-6 flex items-center">
+                            <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </span>
+                            Core Features
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-green-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Nitrification inhibitor fertilizer (DMPP added)</span>
+                            </li>
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-green-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Slow-release fertilizer (90-120 days)</span>
+                            </li>
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-green-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Energetic root development</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Benefits -->
+                <div class="relative">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-400 to-blue-600 rounded-full"></div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl mb-6 flex items-center">
+                            <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center mr-3">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </span>
+                            Benefits
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-blue-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Early harvesting & high-quality products</span>
+                            </li>
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-blue-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Safe without gas damage</span>
+                            </li>
+                            <li class="transform hover:translate-x-2 transition-transform duration-300 flex items-center bg-blue-50 rounded-lg p-4 shadow-sm">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700">Light brown granules (2-3 mm diameter)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Description -->
+        <div class="glass-card p-8 rounded-xl backdrop-blur-lg bg-white/90 relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div class="absolute -right-12 -top-12 w-40 h-40 bg-green-100 rounded-full opacity-20 blur-2xl"></div>
+            <div class="absolute -left-12 -bottom-12 w-40 h-40 bg-blue-100 rounded-full opacity-20 blur-2xl"></div>
+            
+            <!-- Content Container -->
+            <div class="relative z-10">
+                <!-- Title with Icon -->
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mr-4 shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                        About BS GRANULE
+                    </h3>
+                </div>
+        
+                <!-- Main Content -->
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                BS GRANULE is a miraculous fertilizer coated with <span class="font-semibold text-green-600">60 minerals</span> and special vegetable amino acids.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                It's a highly functional soil-improving granular fertilizer containing <span class="font-semibold text-blue-600">zeolite and pozzolan NPK</span>.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                The product excels at supplying nutrients for extended periods without losing active ingredients in sandy soil.
+                            </p>
+                        </div>
+                    </div>
+        
+                    <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-xl shadow-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                Beyond producing healthy and high-quality agricultural products, it also helps restore soil health.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<section class="py-20 relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-red-50 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
+                T-KILL2® Organic Pesticide
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Left Column - Product Info -->
+            <div class="space-y-8">
+                <!-- Product Description -->
+                <div class="glass-card p-6 rounded-xl bg-white/90 backdrop-blur">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-red-600">Natural Ingredients</h3>
+                        <img src="img/organic.png" alt="Organic Certificate" class="w-20 h-20">
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Clove tree and cinnamon tree are natural pesticides that humans have used for thousands of years to relieve pain and remove mold and viruses. Pure salinaldenyde oil extracted from cinnamon tree is particularly antibacterial and has been used for a long time to remove mosquitoes.
+                    </p>
+                </div>
+
+                <!-- Composition Table -->
+                <div class="glass-card p-6 rounded-xl bg-white/90 backdrop-blur">
+                    <h3 class="text-xl font-bold mb-4">Raw Material Composition</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Eugenol extract</span>
+                                <span class="font-semibold">12.5%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Inulin extract</span>
+                                <span class="font-semibold">15.0%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Cinnamon extract</span>
+                                <span class="font-semibold">12.5%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Pyrethrun</span>
+                                <span class="font-semibold">5.0%</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Ethoxylated</span>
+                                <span class="font-semibold">2.5%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Non-ionic Surfactant</span>
+                                <span class="font-semibold">1.25%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span>Antioxidants</span>
+                                <span class="font-semibold">0.01%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Technical Info -->
+            <div class="space-y-8">
+                <!-- Control Effect Table -->
+                <div class="glass-card p-6 rounded-xl bg-white/90 backdrop-blur">
+                    <h3 class="text-xl font-bold mb-4">Control Effect (%)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="p-3 text-left">Test Agent</th>
+                                    <th class="p-3 text-left">Dilution</th>
+                                    <th class="p-3 text-center">24hr</th>
+                                    <th class="p-3 text-center">48hr</th>
+                                    <th class="p-3 text-center">72hr</th>
+                                    <th class="p-3 text-center">96hr</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-3">T-1</td>
+                                    <td class="p-3">250</td>
+                                    <td class="p-3 text-center">82.7%</td>
+                                    <td class="p-3 text-center">96.4%</td>
+                                    <td class="p-3 text-center">100%</td>
+                                    <td class="p-3 text-center">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">T-2</td>
+                                    <td class="p-3">500</td>
+                                    <td class="p-3 text-center">12.7%</td>
+                                    <td class="p-3 text-center">68.7%</td>
+                                    <td class="p-3 text-center">94.1%</td>
+                                    <td class="p-3 text-center">100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Safety Instructions -->
+                <div class="glass-card p-6 rounded-xl bg-white/90 backdrop-blur">
+                    <h3 class="text-xl font-bold mb-4">Safety Instructions</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <span>Shake well before use and immediately after thoroughly diluting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <span>Keep out of reach of children</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-red-500 mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <span>Test small amount when mixing with other products to ensure compatibility</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-green-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+        </div>
+    
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <img src="img/logo.png" alt="Logo" class="w-12 h-12 rounded-lg">
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                            Vegetables and Fruits
+                        </h3>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Professional agricultural solutions for optimal crop growth and protection.
+                    </p>
+                    
+                    <!-- Download Catalog Button -->
+                    <div class="pt-4">
+                        <a href="filea/QREEN Q PROFILE Catalogue for AGRICULTURE (1).pdf" download class="group inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download Catalog
+                            <span class="ml-2 group-hover:translate-y-1 transform transition-transform duration-300">↓</span>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <!-- Products -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Our Products</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#granule" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                BS GRANULE
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#bsgreen" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                BSGREEN FRUIT
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#grain" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                BSGREEN GRAIN
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tkill" class="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                T-KILL2
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="text-gray-400">123 Agriculture Street, City, Country</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-gray-400">info@example.com</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="text-gray-400">+1 234 567 890</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2024 Your Company. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            Terms of Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <button class="floating-action-button">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+    </button>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('translate-x-full');
+    menu.classList.toggle('translate-x-0');
+}
+</script>
+
+
+    <script>
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollIndicator').style.width = scrolled + '%';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+     <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
