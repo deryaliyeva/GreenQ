@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock and poultry</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: rgb(0, 98, 255);
+            --secondary: #00aaff;
+            --accent: #2196F3;
+            --danger: #f44336;
+        }
+
+        /* Core Styles */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 195, 74, 0.05) 0%, transparent 40%);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('./img/livebg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(var(--tx), var(--ty)) rotate(360deg); }
+        }
+
+        /* Interactive Cards */
+        .card {
+            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Disease Grid */
+        .disease-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .disease-item {
+            position: relative;
+            padding-top: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .disease-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .disease-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .disease-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .disease-item:hover .disease-overlay {
+            opacity: 1;
+        }
+
+        /* Process Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            width: 50%;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 50%;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            left: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            right: -10px;
+        }
+
+        /* Feature Icons */
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-icon svg {
+            transform: rotate(-45deg);
+        }
+
+        .card:hover .feature-icon {
+            transform: rotate(90deg);
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            position: relative;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+        }
+
+        .product-card {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        /* Floating Elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .stat-number.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+
+        /* Pest Control Section */
+        .pest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .pest-item {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .pest-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .pest-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 2px solid #eee;
+            padding: 0.75rem 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+        .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.075)!important;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.bg-opacity-10 {
+    opacity: 0.1;
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.list-unstyled li {
+    line-height: 1.6;
+}
+.dropbg{
+    background: url('./img/dropbg.webp') center / cover no-repeat;
+    height: 70vh;
+}
+.virusbg{
+    background: url('./img/VIRUS_ZERO_5.png') center / cover no-repeat;
+    height: 70vh;
+}
+.eggs{
+    background: url('./img/eggs.jpg') center / cover no-repeat;
+    height: 50vh;
+}
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+                                                            
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center" id="home">
+        <div class="hero-particles" id="particles"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h1 class="display-3 fw-bold mb-4">
+                        Livestock and poultry</h1>
+                    <p class="lead mb-4">
+                        Enhance your egg and meat production with our scientifically formulated products, ensuring healthier flocks and superior results. 
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="index.htm" class="btn btn-primary text-white btn-lg px-4 py-3">
+                            Go to Home
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button onclick="openModal()" class="btn btn-outline-light btn-lg px-4 py-3" onclick="openContact()">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="contactModal" class="modal">
+        <div class="max-w-2xl w-full mx-auto m-8">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <!-- Modal Header -->
+                <div class="bg-gradient-to-r from-teal-500 to-blue-500 p-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-black">Contact Us</h3>
+                        <button onclick="closeModal()" class="text-white hover:text-gray-200 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-6">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                            </div>
+                           
+                        </div>
+
+                        <div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone number</label>
+                                <input type="phone" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                            </div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" >Subject</label>
+                            <p class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent">
+                                Water treatment
+                             
+                            </p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:border-transparent"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-gradient text-white py-3 rounded-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services Section -->
+   
+    <section class="py-5" id="water-treatment" style="background: linear-gradient(135deg, #e3f2fd, #e0f7fa);">
+        <div class="container">
+            <h2 class="text-center fs-2 mb-5 fw-bold text-dark">Livestock and poultry Solutions</h2>
+            <div class="row g-4 d-flex align-item-center justify-content-center">
+                <!-- Chlorine Dioxide Application -->
+                <div class="col-lg-10 mb-5" data-aos="fade-up">
+                    <div class="card border-0 text-center shadow h-100" style="border-radius: 20px;">
+                        <div class="virus.div d-flex align-item-center justify-content-center">
+                            <div class="virusbg col-lg-4"></div>
+                            <div class="dropbg col-lg-4"></div>
+                            <div class="col-lg-4 card-body">
+                                <h3 class="m-5" style="color: #3949ab; font-weight: 700;">VIRUS ZERO: FOR POULTRY</h3>
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"> Pure Nano Chlorine Dioxide 6000PPM</li>
+                                    <li class="mb-3">Liquid 1000mL</li>
+                                    <li class="mb-3">Certifications: FDA Registration No 3017180767, EU Registration No N-92265, KFDA Registration No 2010-0513307</li>
+                                    <li class="mb-3">Eco-sterile disinfectants</li>
+                                    <li class="mb-3">Preservative-free</li>
+                                    <li class="mb-3">Alcohol-free</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Virus Zero for Drinking Water -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow h-100" style="border-radius: 20px;">
+                        <div class="card-body">
+                            <div class="art mb-4">
+                                <img src="img/art.jpg" alt="img">
+                            </div>
+                            <h3 class="text-center mb-3" style="color: #ff9800; font-weight: 700;">ARTZENA 101:
+                            </h3>
+                            <p class="text-warning mb-3">
+                                Effect:</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✓ Between 25-27 days will reach 1.8 kg or more
+                                </li>
+                                <li class="mb-2">✓ From the beginning, the bones become strong
+                                </li>
+                                <li class="mb-2">✓ Mega Chicken grows up to 4kg in 50-60 days
+                                </li>
+                                <li class="mb-2">✓ There is no mortality, the ammonia gas disappears
+                                </li>
+                                <li class="mb-2">✓ The meat is very soft and odorless
+                                </li>
+                                <li class="mb-2">✓ Survival rate of 98%
+                                </li>
+                                <li class="mb-2">✓ Digestion absorption power is increased
+                                </li>
+                                <li class="mb-2">✓ The feed demand rate is reduced to 85-90%
+                                </li>
+                                <li class="mb-2">✓ Absolute savings in antibiotics and other drugs
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Treatment Comparison -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow h-100" style="border-radius: 20px;">
+                        <div class="card-body">
+                            <div class="art mb-4">
+                                <img src="img/art02.jpg" alt="img">
+                            </div>
+                            <h3 class="text-center mb-3" style="color: #3949ab; font-weight: 700;">ARTZENA 102:
+                            </h3>
+                            <p class="text-primary mb-3">
+                                Components:</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✓ Betaine - Solver of Heat Related Disease
+                                </li>
+                                <li class="mb-2">✓ Betaine: 50.0%
+                                </li>
+                                <li class="mb-2">✓ Taurine: 12.0%
+                                </li>
+                                <li class="mb-2">✓ Glucose: 38.0%
+                                </li>
+                                <li class="mb-2">✓ 75% of the energy (ME) of chicken and animals are consumed is converted to body heat
+                                </li>
+                                <li class="mb-2">✓ Maintain proper hydration and electrolyte balance
+                                </li>
+                                <li class="mb-2">✓ Mineral regulation such as intracellular calcium
+                                </li>
+                                <li class="mb-2">✓ Overall central nervous system and muscular health support
+                                </li>
+                                <li class="mb-2">✓ Controlling the health and antioxidant function of the immune system
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow h-100" style="border-radius: 20px;">
+                        <div class="card-body">
+                            <div class="art mb-4">
+                                <img src="img/art03.jpg" alt="img">
+                            </div>
+                            <h3 class="text-center mb-3" style="color: #1f8363; font-weight: 700;">ARTZENA 103:
+                            </h3>
+                            <p class="text-success mb-3">Features:
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">✓ Boosting Poultry Meat Yields
+                                </li>
+                                <li class="mb-2">✓ Bioactive Immune Boosting Substances
+                                </li>
+                                <li class="mb-2">✓ All livestock feed additive
+                                </li>
+                                <li class="mb-2">✓ Odorless, non-toxic alkali ion mineral complex
+                                </li>
+                                <li class="mb-2">✓ High-quality livestock production
+                                </li>
+                                <li class="mb-2">✓ Immune boost
+                                </li>
+                                <li class="mb-2">✓ Environment improvement
+                                </li>
+                                <li class="mb-2">✓ Reduction of harmful gases </li>
+                            </ul>
+                            <p>
+                                <ul class="list-unstyled">
+                                <li>✓ Silica 47.18mg/L
+                                </li>
+                                <li>✓ Sodium 0.31mg/L
+                                </li>
+                                <li>✓ Potassium 7.81mg/L
+                                </li>
+                                <li>✓ Calcium 10.23mg/L
+                                </li>
+                                <li>✓ Magnesium 3.81mg/L
+                                </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="card-body bg-transparent">
+                     <div class="row d-flex align-items-center">
+                         <div class="col-md-6 mb-5">
+                             <ul class="list-unstyled">
+                                 <li class="mb-2">For Remove Redmite and Tick
+                                </li>
+                                 <li class="mb-4">A 1mm subtropical external parasite called TICK, MITE, RED MITE or CHICKEN LICE
+                                </li>
+                             </ul>
+                             <p><b>Damage and symptoms:
+                            </b></p>
+                            <p>Damage and symptoms of TICK infection
+                            </p>
+                            <p>Medium that spreads bacterial and viral diseases
+                            </p>
+                            <p>Reduced egg production
+                            </p>
+                            <p>Anemia, developmental delays, sleep disorders, malnutrition
+                            </p>
+                         </div>
+                         <div class="eggs col-md-6"></div>
+                     </div>
+         </div>
+        </div>
+     </section>
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fs-1 fw-bold text-primary mb-5">Prevention
+        </h2>
+        <div class="row g-4">
+            <!-- Application Guide -->
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Block the parasites inside the house                            </li>
+                            <li class="mb-2">✓ Spray chemicals within 2-3 days after shipping                           </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specific Applications -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13 12H3"/>
+                            </svg>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Clean water with high pressure cleaner                            </li>
+                            <li class="mb-2">✓ After washing and disinfecting, ensure proper control chemicals                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Measures -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ Do not allow tick enter from outside                            </li>
+                            <li class="mb-2">✓ Minimize tick density inside the farm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="mb-4">About Us</h4>
+                    <p>Professional lawn care and landscape management services with scientific approach and eco-friendly solutions.</p>
+                   <br>
+                        <a href="filea/Water Treatment (1).pdf" download class="group inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-green-500 to-blue-500 text-white font-medium hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download Catalog
+                        </a>
+                    
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                        <li><a href="#products" class="text-white text-decoration-none">Products</a></li>
+                        <li><a href="#diseases" class="text-white text-decoration-none">Disease Control</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="mb-4">Contact Info</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">Email: info@example.com</li>
+                        <li class="mb-2">Phone: (123) 456-7890</li>
+                        <li>Address: 123 Lawn Care St, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-4 pt-4 text-center">
+                <p class="mb-0">© 2024 Lawn Care Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                particle.style.setProperty('--tx', `${(Math.random() - 0.5) * 200}px`);
+                particle.style.setProperty('--ty', `${(Math.random() - 0.5) * 200}px`);
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Handle scroll progress
+        function updateProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.transform = `scaleX(${scrolled / 100})`;
+        }
+
+        // Initialize
+        createParticles();
+        window.addEventListener('scroll', updateProgress);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Get the button and modal elements
+    const contactBtn = document.querySelector('button[onclick="openModal()"]');
+    const modal = document.getElementById('contactModal');
+    
+    // Remove the inline onclick attribute and add an event listener
+    contactBtn.removeAttribute('onclick');
+    contactBtn.addEventListener('click', function() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus first input after animation
+        setTimeout(() => {
+            modal.querySelector('input[type="text"]').focus();
+        }, 300);
+    });
+
+    // Close modal function
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close button click handler
+    const closeBtn = modal.querySelector('button[onclick="closeModal()"]');
+    closeBtn.removeAttribute('onclick');
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Handle form submission
+    const form = modal.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+        closeModal();
+    });
+});
+    </script>
+    
+</body>
+</html>
