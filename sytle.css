@@ -105,15 +105,14 @@ header{
 }
 
 .service-icon {
-    width: 100%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 1.5rem;
-    transition: all .5s ease;
+    transition: all 0.3s ease;
 }
-
+.service-icon img{
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+}
 .project-card {
     position: relative;
     overflow: hidden;
