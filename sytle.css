@@ -109,9 +109,9 @@ header{
     transition: all 0.3s ease;
 }
 .service-icon img{
-    width: 100px;
-    height: 80px;
-    object-fit: contain;
+    width: 130px;
+    height: 110px;
+    object-fit: cover;
 }
 .project-card {
     position: relative;
